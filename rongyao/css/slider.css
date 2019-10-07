@@ -1,4 +1,11 @@
-/*--轮播图---*/
+
+.rotate {
+    width: 604px;
+    height: 342px;
+    overflow: hidden;
+}
+
+
 .promo-list {
     position: relative;
     width: 3020px;
@@ -19,11 +26,7 @@
     height: 298px;
 }
 
-.rotate {
-    width: 604px;
-    height: 342px;
-    overflow: hidden;
-}
+
 
 .rotate li {
     width: 604px;
@@ -47,7 +50,7 @@
 }
 
 .rotate .rt {
-    float: left;
+    /* float: left; */
     display: inline-block;
     width: 120.8px;
     height: 44px;
