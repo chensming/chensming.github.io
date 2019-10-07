@@ -14,7 +14,7 @@
     git commit -m'描述信息'
 8.(常用)将github仓库更新到本地
     git pull origin master
-9.将本地仓库同步到github仓库
+9.(常用,写完把项目同步上去)将本地仓库同步到github仓库
     git push origin master
 10.(常用)从github上克隆到本地
     git clone 项目网址.git
