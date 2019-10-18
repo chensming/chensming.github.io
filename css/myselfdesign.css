@@ -1,0 +1,9 @@
+.myLink {
+    box-shadow: inset 0 -3px 0 0 #69f0ae;
+    transition: all .25s ease-out;
+}
+
+.myLink:hover {
+    box-shadow: inset 0 -14px 0 0 #ffff00;
+    transition: all .25s ease-out;
+}
