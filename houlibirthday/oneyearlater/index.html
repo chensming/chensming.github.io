@@ -2,136 +2,150 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>One Year Later</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <style type="text/css">
-        #source{
-            display: none;
-        }
-
-       
-    </style>
-    <link href="style/default.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="style/jquery.js"></script>
+  <title>One Year Later</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    #source {
+      display: none;
+    }
+  </style>
+  <link href="style/default.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="style/jquery.js"></script>
 
 </head>
 
 <body>
-    <audio autoplay="autoplay" loop>
-        <source src="remote.mp3" type="audio/mp3" />
-        <source src="remote.ogg" type="audio/ogg" />
-        <embed height="100" width="100" src="remote.mp3" />
-    </audio>
-    <div id="mainDiv">
-        <div id="source">
-            <sapn class="keycode" style="font-size: 18px;">2020/10/18</sapn> <br><br>
-            <span class="text">一年过去了， 真快呀</span> <br>
-            <span class="text">不知道你过得怎么样，应该挺好的吧.</span> <br>
-            <span class="text">偶尔也会想起，之前的岁月.</span> <br>
-            <span class="keycode2">感谢之前你的带来的回忆.</span> <br>
-            <span class="text">和你相处的时候，我也学到一些东西呢</span> <br>
-            <span class="text">祝你早日遇到solemate啦~~~</span> <br>
-            <span class="text">生活中也没有什么过不去的</span> <br>
-            <span class="text">明天太阳照常升起~~~  ^_^</span> <br>
+  <audio autoplay="autoplay" loop>
+    <source src="remote.mp3" type="audio/mp3" />
+    <source src="remote.ogg" type="audio/ogg" />
+    <embed height="100" width="100" src="remote.mp3" />
+  </audio>
+  <div id="mainDiv">
+    <div id="source">
+      <ul>
+        <li>
+          <sapn class="keycode" style="font-size: 18px;">2020/10/18</sapn> <br><br>
+          <span class="text">一年过去了， 真快呀</span> <br>
+          <span class="text">不知道你过得怎么样，应该挺好的吧.</span> <br>
+          <span class="text">偶尔也会想起，之前的岁月.</span> <br>
+          <span class="keycode2">感谢之前你的带来的回忆.</span> <br>
+          <span class="text">和你相处的时候，我也学到一些东西呢</span> <br>
+          <span class="text">祝你早日遇到solemate啦~~~</span> <br>
+          <span class="text">生活中也没有什么过不去的</span> <br>
+          <span class="text">明天太阳照常升起~~~ ^_^</span> <br>
+        </li>
+        <br><br>
+        <li>
+          <sapn class="keycode" style="font-size: 18px;">2020/10/19</sapn> <br><br>
+          <span class="text">我觉得, 我好像<span class="keycode3">喜欢</span>上一个师妹了呢</span> <br>
+          <span class="text">尽管我之前一直觉得</span> <br>
+          <span class="text">我不会和师妹拍拖</span> <br>
+          <span class="text">但是我觉得, 或许我可以试试.</span> <br>
+          <span class="text">不过我会再看看</span> <br>
+          <span class="text">吸取了前段时间表白的失败经验</span> <br>
+          <span class="text">看人还是要久一点</span> <br>
+          <span class="text">尽管我现在挺喜欢<span class="keycode3">她身上的特质</span>的</span> <br>
+          <span class="text">也想保护她的童心~~~</span> <br>
+        </li>
+      </ul>
 
 
-            
-        </div>
-        
-        <div id="output">
-        
-        </div>
-        <div id="footer">
-            It is never life that gets better, but you who are bright and working hard.
-        </div>
     </div>
-   
-    
-    <script type="text/javascript">
-      class Typing {
-        constructor(opts) {
-          this.opts = opts || {};
-          this.source = opts.source;
-          this.output = opts.output;
-          this.delay = opts.delay || 120;
-          this.chain = {
-            parent: null,
-            dom: this.output,
-            val: []
-          };
-          if (!(typeof this.opts.done === 'function')) this.opts.done = function () {
-          };
-        }
-    
-        init() {
-          //初始化函数
-          this.chain.val = this.convert(this.source, this.chain.val);
-        }
-    
-        convert(dom, arr) {
-          //将dom节点的子节点转换成数组，
-          let children = Array.from(dom.childNodes)
-          for (let i = 0; i < children.length; i++) {
-            let node = children[i]
-            if (node.nodeType === 3) {
-              arr = arr.concat(node.nodeValue.split(''))   //将字符串转换成字符串数组，后面打印时才会一个一个的打印
-            } else if (node.nodeType === 1) {
-              let val = []
-              val = this.convert(node, val)
-              arr.push({
-                'dom': node,
-                'val': val
-              })
-            }
-          }
-          return arr
-        }
-    
-        print(dom, val, callback) {
-          setTimeout(function () {
-            dom.appendChild(document.createTextNode(val));
-            callback();
-          }, this.delay);
-        }
-    
-        play(ele) {
-          //当打印最后一个字符时，动画完毕，执行done
-          if (!ele.val.length) {
-            if (ele.parent) this.play(ele.parent);
-            else this.opts.done();
-            return;
-          }
-          let current = ele.val.shift()  //获取第一个元素，同时删除数组中的第一个元素
-          if (typeof current === 'string') {
-            this.print(ele.dom, current, () => {
-              this.play(ele); //继续打印下一个字符
-            })
-          } else {
-            let dom = current.dom.cloneNode() //克隆节点，不克隆节点的子节点，所以不用加参数true
-            ele.dom.appendChild(dom)
-            this.play({
-              parent: ele,
-              dom,
-              val: current.val
+
+    <div id="output">
+
+    </div>
+    <div id="footer">
+      It is never life that gets better, but you who are bright and working hard.
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    class Typing {
+      constructor(opts) {
+        this.opts = opts || {};
+        this.source = opts.source;
+        this.output = opts.output;
+        this.delay = opts.delay || 120;
+        this.chain = {
+          parent: null,
+          dom: this.output,
+          val: []
+        };
+        if (!(typeof this.opts.done === 'function')) this.opts.done = function () {
+        };
+      }
+
+      init() {
+        //初始化函数
+        this.chain.val = this.convert(this.source, this.chain.val);
+      }
+
+      convert(dom, arr) {
+        //将dom节点的子节点转换成数组，
+        let children = Array.from(dom.childNodes)
+        for (let i = 0; i < children.length; i++) {
+          let node = children[i]
+          if (node.nodeType === 3) {
+            arr = arr.concat(node.nodeValue.split(''))   //将字符串转换成字符串数组，后面打印时才会一个一个的打印
+          } else if (node.nodeType === 1) {
+            let val = []
+            val = this.convert(node, val)
+            arr.push({
+              'dom': node,
+              'val': val
             })
           }
         }
-    
-        start() {
-          this.init();
-          this.play(this.chain);
+        return arr
+      }
+
+      print(dom, val, callback) {
+        setTimeout(function () {
+          dom.appendChild(document.createTextNode(val));
+          callback();
+        }, this.delay);
+      }
+
+      play(ele) {
+        //当打印最后一个字符时，动画完毕，执行done
+        if (!ele.val.length) {
+          if (ele.parent) this.play(ele.parent);
+          else this.opts.done();
+          return;
+        }
+        let current = ele.val.shift()  //获取第一个元素，同时删除数组中的第一个元素
+        if (typeof current === 'string') {
+          this.print(ele.dom, current, () => {
+            this.play(ele); //继续打印下一个字符
+          })
+        } else {
+          let dom = current.dom.cloneNode() //克隆节点，不克隆节点的子节点，所以不用加参数true
+          ele.dom.appendChild(dom)
+          this.play({
+            parent: ele,
+            dom,
+            val: current.val
+          })
         }
       }
-    </script>
-    <script type="text/javascript">
-      let source = document.getElementById('source')
-      let output = document.getElementById('output')
-      let typing = new Typing({
-        source,
-        output
-      })
-      typing.start()
-    </script>
+
+      start() {
+        this.init();
+        this.play(this.chain);
+      }
+    }
+  </script>
+  <script type="text/javascript">
+    let source = document.getElementById('source')
+    let output = document.getElementById('output')
+    let typing = new Typing({
+      source,
+      output
+    })
+    typing.start()
+  </script>
 </body>
 
 </html>
