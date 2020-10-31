@@ -4,7 +4,7 @@ body {
     background: #ffe;
     font-size: 12px;
     overflow: auto;
-    background-image: url("../bg.jpg");
+    background-image: url("../asset/imgs/bg.jpg");
 }
 
 #mainDiv {
@@ -57,4 +57,9 @@ body {
     margin-left: 15%;
     font-size: 20px;
     color: #e84393;
+}
+
+.img-love{
+    width: 100px;
+    height: 120px;
 }
